@@ -11,7 +11,7 @@ public class GridManager : MonoBehaviour
     public GameObject tilePrefab;
     public GameObject[,] grid;
 
-    public GameObject gridButton;
+    public GameObject gameBoard;
 
     private int gridSize;
 
@@ -19,6 +19,7 @@ public class GridManager : MonoBehaviour
     {
         gridSize = (row * column);
         grid = new GameObject[row, column];
+        MakeGrid();
     }
 
     public void MakeGrid()
@@ -29,9 +30,10 @@ public class GridManager : MonoBehaviour
             {
                 grid[r, c] = Instantiate(tilePrefab);
                 grid[r, c].GetComponent<TileManager>().setGridCoords(r, c);
+                grid[r, c].transform.parent = gameBoard.transform;
                 grid[r, c].transform.position = new Vector3(r, c, 0);
+                grid[r, c].transform.position = new Vector3( (gameBoard.transform.position.x -15.5f) + r, (gameBoard.transform.position.y - 15.5f) + c, 0);
             }
         }
-        gridButton.SetActive(false);
     }
 }
