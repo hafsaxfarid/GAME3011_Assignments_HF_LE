@@ -11,24 +11,28 @@ public class ResourceSlot : MonoBehaviour
     public Image resourceIconBOT;
 
     bool isRevealed = false;
+    bool canExtract = false;
+    int resourceAmount;
 
     private void Start()
     {
         resourceIconTOP.enabled = true;
         resourceIconBOT.enabled = false;
+        resourceAmount = resourceOnGrid.resourceAmount; //separate int cause scriptable objects keep the changed amount even after exiting scene.
     }
 
     private void Update()
     {
-        if(resourceOnGrid.resourceAmount == 5000)
+
+        if(resourceAmount == 5000)
         {
             resourceIconBOT.color = Color.red;
         }
-        else if(resourceOnGrid.resourceAmount == 2500)
+        else if(resourceAmount == 2500)
         {
             resourceIconBOT.color = Color.blue;
         }
-        else if(resourceOnGrid.resourceAmount == 1250)
+        else if(resourceAmount == 1250)
         {
             resourceIconBOT.color = Color.black;
         }
@@ -41,6 +45,7 @@ public class ResourceSlot : MonoBehaviour
         {
             isRevealed = true;
         }
+
     }
 
     public void Pressed()
@@ -50,7 +55,13 @@ public class ResourceSlot : MonoBehaviour
 
         if(isRevealed)
         {
-            resourceOnGrid.resourceAmount /= 2;
+            Extract();
         }
+    }
+
+    void Extract()
+    {
+        ResourcesCollected.resourcesCollected += resourceAmount;
+        resourceAmount = 0;
     }
 }
