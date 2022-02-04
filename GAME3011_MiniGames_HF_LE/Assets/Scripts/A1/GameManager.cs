@@ -6,16 +6,24 @@ public class GameManager : MonoBehaviour
 {
     public static bool canExtract;
     public static bool canScan;
+    public static int scans = 6;
+    public static int extracts = 3;
 
     public void ScanPressed()
     {
-        canScan = true;
+        if(scans > 0)
+        {
+            canScan = true;
+        }
         canExtract = false;
     }
 
     public void ExtractPressed()
     {
-        canExtract = true;
+        if(extracts > 0)
+        {
+            canExtract = true;
+        }
         canScan = false;
     }
 }

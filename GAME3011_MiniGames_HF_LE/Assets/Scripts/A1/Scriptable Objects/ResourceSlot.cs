@@ -54,6 +54,7 @@ public class ResourceSlot : MonoBehaviour
         {
             resourceIconTOP.enabled = false;
             resourceIconBOT.enabled = true;
+            GameManager.scans--;
         }
 
         if(GameManager.canExtract)
@@ -69,5 +70,6 @@ public class ResourceSlot : MonoBehaviour
     {
         ResourcesCollected.resourcesCollected += resourceAmount;
         resourceAmount = 0;
+        GameManager.extracts--;
     }
 }
