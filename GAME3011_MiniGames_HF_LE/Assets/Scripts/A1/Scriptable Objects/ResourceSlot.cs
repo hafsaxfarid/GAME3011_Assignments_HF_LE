@@ -68,8 +68,11 @@ public class ResourceSlot : MonoBehaviour
 
     void Extract()
     {
-        ResourcesCollected.resourcesCollected += resourceAmount;
-        resourceAmount = 0;
-        GameManager.extracts--;
+        if(resourceAmount != 0)
+        {
+            ResourcesCollected.resourcesCollected += resourceAmount;
+            resourceAmount = 0;
+            GameManager.extracts--;
+        }
     }
 }
