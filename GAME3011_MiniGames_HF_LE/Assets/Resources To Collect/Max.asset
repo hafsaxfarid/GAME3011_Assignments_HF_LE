@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a1df3e6e295dd340a56ed1d8c80ace1, type: 3}
-  m_Name: Mithril
+  m_Name: Max
   m_EditorClassIdentifier: 
-  name: Mithril
+  name: Max
   description: This is a Resource
   resourceAmount: 5000
-  icon: {fileID: 0}

@@ -38,7 +38,7 @@ public class ResourceSlot : MonoBehaviour
         }
         else
         {
-            resourceIconBOT.color = Color.white;
+            resourceIconBOT.color = Color.grey;
         }
 
         if(resourceIconBOT.enabled)
@@ -50,12 +50,18 @@ public class ResourceSlot : MonoBehaviour
 
     public void Pressed()
     {
-        resourceIconTOP.enabled = false;
-        resourceIconBOT.enabled = true;
-
-        if(isRevealed)
+        if(GameManager.canScan)
         {
-            Extract();
+            resourceIconTOP.enabled = false;
+            resourceIconBOT.enabled = true;
+        }
+
+        if(GameManager.canExtract)
+        {
+            if (isRevealed)
+            {
+                Extract();
+            }
         }
     }
 

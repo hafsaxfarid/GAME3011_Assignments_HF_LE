@@ -9,6 +9,4 @@ public class Resources : ScriptableObject
     [TextArea(10, 100)]
     public string description = "This is a Resource";
     public int resourceAmount = 5000;
-    public Sprite icon;
-
 }
