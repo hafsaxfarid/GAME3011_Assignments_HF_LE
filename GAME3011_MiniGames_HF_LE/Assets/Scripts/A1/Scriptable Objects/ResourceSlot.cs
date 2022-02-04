@@ -10,6 +10,8 @@ public class ResourceSlot : MonoBehaviour
     public Image resourceIconTOP;
     public Image resourceIconBOT;
 
+    bool isRevealed = false;
+
     private void Start()
     {
         resourceIconTOP.enabled = true;
@@ -34,11 +36,21 @@ public class ResourceSlot : MonoBehaviour
         {
             resourceIconBOT.color = Color.white;
         }
+
+        if(resourceIconBOT.enabled)
+        {
+            isRevealed = true;
+        }
     }
 
     public void Pressed()
     {
         resourceIconTOP.enabled = false;
         resourceIconBOT.enabled = true;
+
+        if(isRevealed)
+        {
+            resourceOnGrid.resourceAmount /= 2;
+        }
     }
 }
