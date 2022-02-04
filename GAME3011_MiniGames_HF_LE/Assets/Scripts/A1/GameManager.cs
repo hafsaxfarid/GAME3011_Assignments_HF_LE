@@ -26,4 +26,16 @@ public class GameManager : MonoBehaviour
         }
         canScan = false;
     }
+
+    private void Update()
+    {
+        if(extracts <= 0)
+        {
+            canExtract = false;
+        }
+        if(scans <= 0)
+        {
+            canScan = false;
+        }
+    }
 }

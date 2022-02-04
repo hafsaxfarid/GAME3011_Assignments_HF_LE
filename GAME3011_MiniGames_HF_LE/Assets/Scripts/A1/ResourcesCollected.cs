@@ -9,6 +9,8 @@ public class ResourcesCollected : MonoBehaviour
     public static int resourcesCollected;
 
     public TMP_Text resourcesCollectedText;
+    public GameObject finalPanel;
+    public TMP_Text finalText;
 
     // Start is called before the first frame update
     void Start()
@@ -20,5 +22,11 @@ public class ResourcesCollected : MonoBehaviour
     void Update()
     {
         resourcesCollectedText.text = "Resources Collected: " + resourcesCollected;
+        finalText.text = "You Collected: " + resourcesCollected + " Resources!";
+
+        if(GameManager.extracts <= 0)
+        {
+            finalPanel.SetActive(true);
+        }
     }
 }
