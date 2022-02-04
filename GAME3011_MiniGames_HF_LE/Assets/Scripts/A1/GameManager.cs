@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +10,9 @@ public class GameManager : MonoBehaviour
     public static bool canScan;
     public static int scans = 6;
     public static int extracts = 3;
+
+    public TMP_Text scanText;
+    public TMP_Text extractText;
 
     public void ScanPressed()
     {
@@ -29,7 +34,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(extracts <= 0)
+
+        scanText.text = "Scan: " + scans;
+        extractText.text = "Extract: " + extracts;
+
+        if (extracts <= 0)
         {
             canExtract = false;
         }

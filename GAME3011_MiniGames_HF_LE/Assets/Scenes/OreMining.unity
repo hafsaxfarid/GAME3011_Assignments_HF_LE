@@ -1162,7 +1162,7 @@ GameObject:
   - component: {fileID: 390587889}
   - component: {fileID: 390587888}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ScanText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1271,7 +1271,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -62.62362, y: 0, z: -54.59498, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1398,7 +1398,7 @@ GameObject:
   - component: {fileID: 412189252}
   - component: {fileID: 412189251}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ExtractText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2801,6 +2801,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a083a74e09fb604c9a3aa7df1ece51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scanText: {fileID: 390587888}
+  extractText: {fileID: 412189251}
 --- !u!114 &1075269350
 MonoBehaviour:
   m_ObjectHideFlags: 0
