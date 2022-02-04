@@ -20230,10 +20230,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 945266691}
     m_Modifications:
-    - target: {fileID: 1863476836, guid: e848af1657b1d7841b561e8f127dc34b, type: 3}
-      propertyPath: resourceOnGrid
-      value: 
-      objectReference: {fileID: 11400000, guid: 92c23eebac205a348b30a9e7fa907e8a, type: 2}
     - target: {fileID: 215240574560476693, guid: e848af1657b1d7841b561e8f127dc34b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -27830,10 +27826,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 945266691}
     m_Modifications:
-    - target: {fileID: 1863476836, guid: e848af1657b1d7841b561e8f127dc34b, type: 3}
-      propertyPath: resourceOnGrid
-      value: 
-      objectReference: {fileID: 11400000, guid: 01e5c6c5d6ea2e842b46569bed0fae26, type: 2}
     - target: {fileID: 215240574560476693, guid: e848af1657b1d7841b561e8f127dc34b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

@@ -14,8 +14,13 @@ public class ResourceSlot : MonoBehaviour
     bool canExtract = false;
     int resourceAmount;
 
+    public Transform scanStartPoint;
+    public float scanRange;
+    public LayerMask tileLayer;
+
     private void Start()
     {
+        scanStartPoint.transform.position = transform.position;
         resourceIconTOP.enabled = true;
         resourceIconBOT.enabled = false;
         resourceAmount = resourceOnGrid.resourceAmount; //separate int cause scriptable objects keep the changed amount even after exiting scene.
@@ -44,6 +49,8 @@ public class ResourceSlot : MonoBehaviour
         if(resourceIconBOT.enabled)
         {
             isRevealed = true;
+
+            tilesInRange();
         }
 
     }
@@ -73,6 +80,25 @@ public class ResourceSlot : MonoBehaviour
             ResourcesCollected.resourcesCollected += resourceAmount;
             resourceAmount = 0;
             GameManager.extracts--;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (isRevealed == true)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(scanStartPoint.position, scanRange);
+        }
+    }
+
+    private void tilesInRange()
+    {
+        Collider2D[] tilesInRange = Physics2D.OverlapCircleAll(scanStartPoint.position, scanRange, tileLayer);
+
+        foreach (Collider2D tile in tilesInRange)
+        {
+            Debug.Log("Tiles: " + tile);
         }
     }
 }
