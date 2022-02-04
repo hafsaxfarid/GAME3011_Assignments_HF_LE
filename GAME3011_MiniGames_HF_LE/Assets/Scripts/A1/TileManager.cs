@@ -32,5 +32,8 @@ public class TileManager : MonoBehaviour
     private void OnMouseDown()
     {
         Debug.Log("TO DO: Add options for scan or extract");
+        //add option to scan
+        //scan reveals second grid? (link individual tiles to each other?)
+        //add extract option to second grid
     }
 }

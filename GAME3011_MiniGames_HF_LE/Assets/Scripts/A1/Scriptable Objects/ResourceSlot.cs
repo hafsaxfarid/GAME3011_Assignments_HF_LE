@@ -6,37 +6,39 @@ using TMPro;
 
 public class ResourceSlot : MonoBehaviour
 {
-    public List<Resources> resourcesOnGrid;
-    string buttonName;
-    public TMP_Text resourceNameText;
-    public TMP_Text resourceText;
-    public Image resourceIcon;
+    public Resources resourceOnGrid;
+    public Image resourceIconTOP;
+    public Image resourceIconBOT;
 
     private void Start()
     {
-        //buttonName = gameObject.name;
-        //
-        //if (dayEvent != null)
-        //{
-        //    int i = int.Parse(buttonName);
-        //    Grid.hasEvent[i] = true;
-        //
-        //    //trying to get description to display for multiple events on the same day
-        //    //for now just have 1 in the list
-        //    for (int index = 0; index < dayEvent.Count; index++)
-        //    {
-        //        eventIcon.sprite = dayEvent[index].icon;
-        //    }
-        //}
+        resourceIconTOP.enabled = true;
+        resourceIconBOT.enabled = false;
     }
 
-    public void pressed()
+    private void Update()
     {
-        //for (int index = 0; index < dayEvent.Count; index++)
-        //{
-        //    eventNameText.text = dayEvent[index].name;
-        //    eventText.text = dayEvent[index].description;
-        //    eventPanelIcon.sprite = dayEvent[index].icon;
-        //}
+        if(resourceOnGrid.resourceAmount == 5000)
+        {
+            resourceIconBOT.color = Color.red;
+        }
+        else if(resourceOnGrid.resourceAmount == 2500)
+        {
+            resourceIconBOT.color = Color.blue;
+        }
+        else if(resourceOnGrid.resourceAmount == 1250)
+        {
+            resourceIconBOT.color = Color.black;
+        }
+        else
+        {
+            resourceIconBOT.color = Color.white;
+        }
+    }
+
+    public void Pressed()
+    {
+        resourceIconTOP.enabled = false;
+        resourceIconBOT.enabled = true;
     }
 }
