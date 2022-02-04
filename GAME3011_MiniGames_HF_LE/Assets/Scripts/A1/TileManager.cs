@@ -19,14 +19,18 @@ public class TileManager : MonoBehaviour
         column = c;
     }
 
-    private void OnMouseDown()
+    private void OnMouseEnter()
     {
         highlightedColor.SetActive(true);
-        Debug.Log("Row: " + row + " Column: " + column);
     }
 
-    private void OnMouseUp()
+    private void OnMouseExit()
     {
         highlightedColor.SetActive(false);
+    }
+
+    private void OnMouseDown()
+    {
+        Debug.Log("TO DO: Add options for scan or extract");
     }
 }
