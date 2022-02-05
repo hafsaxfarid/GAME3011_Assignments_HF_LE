@@ -82,9 +82,29 @@ public class ResourceSlot : MonoBehaviour
     {
         if (resourceAmount != 0)
         {
-            ResourcesCollected.resourcesCollected += resourceAmount;
-            resourceAmount = 0;
-            GameManager.extracts--;
+
+            if (resourceAmount == 5000)
+            {
+                ResourcesCollected.resourcesCollected += resourceAmount;
+                resourceAmount = 2500;
+                GameManager.extracts--;
+            }
+            else if (resourceAmount == 2500)
+            {
+                ResourcesCollected.resourcesCollected += resourceAmount;
+                resourceAmount = 1250;
+                GameManager.extracts--;
+            }
+            else if(resourceAmount == 1250)
+            {
+                ResourcesCollected.resourcesCollected += resourceAmount;
+                resourceAmount = 0;
+                GameManager.extracts--;
+            }
+        }
+        else
+        {
+            Debug.Log("Try a different tile");
         }
     }
 
@@ -111,7 +131,7 @@ public class ResourceSlot : MonoBehaviour
         foreach (Collider2D tile in tilesInRange)
         {
             GameObject tempTile = tile.gameObject;
-            
+
             if (tilesInRange.Length < maxTileScanSize)
             {
                 tempTile.gameObject.GetComponent<ResourceSlot>().scanCircleActive = false;
@@ -126,7 +146,7 @@ public class ResourceSlot : MonoBehaviour
                 }
                 //Debug.Log("Tiles: " + tile);
             }
-                break;
+            break;
         }
     }
 }
