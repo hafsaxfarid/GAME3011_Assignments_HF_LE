@@ -96,6 +96,10 @@ public class ResourceSlot : MonoBehaviour
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(scanStartPoint.transform.position, scanRange);
         }
+        else
+        {
+            scanCircleActive = false;
+        }
     }
 
     private void tilesInRange()
@@ -106,9 +110,10 @@ public class ResourceSlot : MonoBehaviour
 
         foreach (Collider2D tile in tilesInRange)
         {
-            if (tilesInRange.Length < maxTileScanSize || tilesInRange.Length == maxTileScanSize)
+            GameObject tempTile = tile.gameObject;
+            
+            if (tilesInRange.Length < maxTileScanSize)
             {
-                GameObject tempTile = tile.gameObject;
                 tempTile.gameObject.GetComponent<ResourceSlot>().scanCircleActive = false;
 
                 if (tempTile.CompareTag("Tile"))
@@ -121,6 +126,7 @@ public class ResourceSlot : MonoBehaviour
                 }
                 //Debug.Log("Tiles: " + tile);
             }
+                break;
         }
     }
 }
