@@ -18,6 +18,9 @@ public class ResourceSlot : MonoBehaviour
     public float scanRange;
     public LayerMask tileLayer;
 
+    public bool scanCircleActive = false;
+
+    private int maxTileScanSize = 9;
     private void Start()
     {
         scanStartPoint.transform.position = transform.position;
@@ -29,15 +32,15 @@ public class ResourceSlot : MonoBehaviour
     private void Update()
     {
 
-        if(resourceAmount == 5000)
+        if (resourceAmount == 5000)
         {
             resourceIconBOT.color = Color.red;
         }
-        else if(resourceAmount == 2500)
+        else if (resourceAmount == 2500)
         {
             resourceIconBOT.color = Color.blue;
         }
-        else if(resourceAmount == 1250)
+        else if (resourceAmount == 1250)
         {
             resourceIconBOT.color = Color.black;
         }
@@ -46,25 +49,27 @@ public class ResourceSlot : MonoBehaviour
             resourceIconBOT.color = Color.grey;
         }
 
-        if(resourceIconBOT.enabled)
+        if (resourceIconBOT.enabled)
         {
             isRevealed = true;
-
-            tilesInRange();
         }
 
+        if (scanCircleActive == true)
+        {
+            tilesInRange();
+        }
     }
 
     public void Pressed()
     {
-        if(GameManager.canScan)
+        if (GameManager.canScan)
         {
             resourceIconTOP.enabled = false;
             resourceIconBOT.enabled = true;
             GameManager.scans--;
         }
 
-        if(GameManager.canExtract)
+        if (GameManager.canExtract)
         {
             if (isRevealed)
             {
@@ -75,7 +80,7 @@ public class ResourceSlot : MonoBehaviour
 
     void Extract()
     {
-        if(resourceAmount != 0)
+        if (resourceAmount != 0)
         {
             ResourcesCollected.resourcesCollected += resourceAmount;
             resourceAmount = 0;
@@ -87,18 +92,35 @@ public class ResourceSlot : MonoBehaviour
     {
         if (isRevealed == true)
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(scanStartPoint.position, scanRange);
+            scanCircleActive = true;
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(scanStartPoint.transform.position, scanRange);
         }
     }
 
     private void tilesInRange()
     {
-        Collider2D[] tilesInRange = Physics2D.OverlapCircleAll(scanStartPoint.position, scanRange, tileLayer);
+        Collider2D[] tilesInRange = Physics2D.OverlapCircleAll(scanStartPoint.transform.position, scanRange, tileLayer);
+        scanCircleActive = false;
+
 
         foreach (Collider2D tile in tilesInRange)
         {
-            Debug.Log("Tiles: " + tile);
+            if (tilesInRange.Length < maxTileScanSize || tilesInRange.Length == maxTileScanSize)
+            {
+                GameObject tempTile = tile.gameObject;
+                tempTile.gameObject.GetComponent<ResourceSlot>().scanCircleActive = false;
+
+                if (tempTile.CompareTag("Tile"))
+                {
+                    tempTile.gameObject.GetComponent<ResourceSlot>().scanCircleActive = false;
+                    tempTile.gameObject.GetComponent<ResourceSlot>().resourceIconTOP.enabled = false;
+                    tempTile.gameObject.GetComponent<ResourceSlot>().resourceIconBOT.enabled = true;
+                    tempTile.gameObject.GetComponent<ResourceSlot>().isRevealed = true;
+
+                }
+                //Debug.Log("Tiles: " + tile);
+            }
         }
     }
 }

@@ -30061,6 +30061,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 945266691}
     m_Modifications:
+    - target: {fileID: 1863476836, guid: e848af1657b1d7841b561e8f127dc34b, type: 3}
+      propertyPath: scanRange
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 215240574560476693, guid: e848af1657b1d7841b561e8f127dc34b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -30148,6 +30152,18 @@ PrefabInstance:
     - target: {fileID: 3537153522557360890, guid: e848af1657b1d7841b561e8f127dc34b, type: 3}
       propertyPath: m_Name
       value: ButtonTile
+      objectReference: {fileID: 0}
+    - target: {fileID: 4379701641343651231, guid: e848af1657b1d7841b561e8f127dc34b, type: 3}
+      propertyPath: m_Size.x
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4379701641343651231, guid: e848af1657b1d7841b561e8f127dc34b, type: 3}
+      propertyPath: m_Size.y
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4379701641343651231, guid: e848af1657b1d7841b561e8f127dc34b, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e848af1657b1d7841b561e8f127dc34b, type: 3}
