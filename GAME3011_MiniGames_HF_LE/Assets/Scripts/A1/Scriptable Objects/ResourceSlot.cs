@@ -32,21 +32,21 @@ public class ResourceSlot : MonoBehaviour
     private void Update()
     {
 
-        if (resourceAmount == 5000)
+        if (resourceAmount == 5000) // max
         {
             resourceIconBOT.color = Color.red;
         }
-        else if (resourceAmount == 2500)
+        else if (resourceAmount == 2500) // half
         {
             resourceIconBOT.color = Color.blue;
         }
-        else if (resourceAmount == 1250)
+        else if (resourceAmount == 1250) // quater
         {
-            resourceIconBOT.color = Color.black;
+            resourceIconBOT.color = Color.cyan;
         }
         else
         {
-            resourceIconBOT.color = Color.grey;
+            resourceIconBOT.color = Color.grey; // none
         }
 
         if (resourceIconBOT.enabled)
