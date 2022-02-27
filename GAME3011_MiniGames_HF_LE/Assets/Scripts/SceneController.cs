@@ -12,7 +12,7 @@ public class SceneController : MonoBehaviour
 
     public void LoadAssignment2()
     {
-        Debug.Log("A2 Coming Soon...");
+        SceneManager.LoadScene("LockPicking");
     }
 
     public void LoadAssignment3()
