@@ -12,6 +12,12 @@ public class GameManager_A2 : MonoBehaviour
     [SerializeField]
     LockPickTimer timer;
 
+    [Range(0, 15)]
+    public int playerSkill;
+
+    [Range(1, 25)]
+    public float lockDifficulty; //range of angle unlock. Higher = easier.
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +39,7 @@ public class GameManager_A2 : MonoBehaviour
         hard = false;
 
         timer.startTime = 60;
+        lockDifficulty = 30 + playerSkill;
     }
 
     public void MediumMode()
@@ -42,6 +49,7 @@ public class GameManager_A2 : MonoBehaviour
         hard = false;
 
         timer.startTime = 40;
+        lockDifficulty = 20 + playerSkill;
     }
 
     public void HardMode()
@@ -51,5 +59,6 @@ public class GameManager_A2 : MonoBehaviour
         hard = true;
 
         timer.startTime = 20;
+        lockDifficulty = 10 + playerSkill;
     }
 }
