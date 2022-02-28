@@ -3,17 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class LockPickTimer : MonoBehaviour
 {
-    //display timer in scene
     public TextMeshProUGUI timerDisplay;
+    public GameObject gameOver;
 
     public static float currentTime = 0.0f;
-    public float startTime; //total amount of time on timer
+    public float startTime;
 
-    // Start is called before the first frame update
     void Start()
     {
         currentTime = startTime;
@@ -31,7 +29,8 @@ public class LockPickTimer : MonoBehaviour
 
         if (currentTime <= 0)
         {
-            //SceneManager.LoadScene("EndScene"); //once timer reaches 0 load endscene
+            currentTime = 0;
+            gameOver.SetActive(true);
         }
     }
 }
