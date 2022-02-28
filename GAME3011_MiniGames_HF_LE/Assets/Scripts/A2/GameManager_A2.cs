@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager_A2 : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class GameManager_A2 : MonoBehaviour
     LockPickTimer timer;
 
     [Range(0, 15)]
-    public int playerSkill;
+    public float playerSkill;
 
     [Range(1, 25)]
     public float lockDifficulty; //range of angle unlock. Higher = easier.
@@ -60,5 +61,10 @@ public class GameManager_A2 : MonoBehaviour
 
         timer.startTime = 20;
         lockDifficulty = 10 + playerSkill;
+    }
+
+    public void PlayerSkillSlider(float value)
+    {
+        playerSkill = value;
     }
 }
