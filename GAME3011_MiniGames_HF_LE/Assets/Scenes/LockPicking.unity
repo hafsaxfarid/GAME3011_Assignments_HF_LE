@@ -1789,6 +1789,7 @@ MonoBehaviour:
   easy: 0
   medium: 0
   hard: 0
+  timer: {fileID: 1572147154}
 --- !u!4 &1496284067
 Transform:
   m_ObjectHideFlags: 0

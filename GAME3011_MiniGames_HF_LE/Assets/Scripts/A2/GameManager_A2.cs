@@ -9,6 +9,9 @@ public class GameManager_A2 : MonoBehaviour
     public bool medium;
     public bool hard;
 
+    [SerializeField]
+    LockPickTimer timer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,8 @@ public class GameManager_A2 : MonoBehaviour
         easy = true;
         medium = false;
         hard = false;
+
+        timer.startTime = 60;
     }
 
     public void MediumMode()
@@ -35,6 +40,8 @@ public class GameManager_A2 : MonoBehaviour
         easy = false;
         medium = true;
         hard = false;
+
+        timer.startTime = 40;
     }
 
     public void HardMode()
@@ -42,5 +49,7 @@ public class GameManager_A2 : MonoBehaviour
         easy = false;
         medium = false;
         hard = true;
+
+        timer.startTime = 20;
     }
 }

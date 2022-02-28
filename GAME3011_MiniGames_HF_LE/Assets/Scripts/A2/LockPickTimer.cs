@@ -11,7 +11,7 @@ public class LockPickTimer : MonoBehaviour
     public TextMeshProUGUI timerDisplay;
 
     public static float currentTime = 0.0f;
-    [SerializeField] float startTime; //total amount of time on timer
+    public float startTime; //total amount of time on timer
 
     // Start is called before the first frame update
     void Start()
