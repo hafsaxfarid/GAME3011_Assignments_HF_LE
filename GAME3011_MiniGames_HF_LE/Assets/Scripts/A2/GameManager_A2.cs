@@ -9,6 +9,10 @@ public class GameManager_A2 : MonoBehaviour
     public bool easy;
     public bool medium;
     public bool hard;
+    public bool unlocked;
+
+    [SerializeField]
+    GameObject unlockedMessage;
 
     [SerializeField]
     LockPickTimer timer;
@@ -30,7 +34,10 @@ public class GameManager_A2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(unlocked)
+        {
+            unlockedMessage.SetActive(true);
+        }
     }
 
     public void EasyMode()
