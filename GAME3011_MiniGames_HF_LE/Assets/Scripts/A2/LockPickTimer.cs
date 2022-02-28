@@ -20,17 +20,20 @@ public class LockPickTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentTime -= 1 * Time.deltaTime; //update per second
-
-        if (timerDisplay != null)
+        if(!GameManager_A2.unlocked)
         {
-            timerDisplay.SetText("Time Left: " + Mathf.Round(currentTime)); //round to whole number
-        }
+            currentTime -= 1 * Time.deltaTime; //update per second
 
-        if (currentTime <= 0)
-        {
-            currentTime = 0;
-            gameOver.SetActive(true);
+            if (timerDisplay != null)
+            {
+                timerDisplay.SetText("Time Left: " + Mathf.Round(currentTime)); //round to whole number
+            }
+
+            if (currentTime <= 0)
+            {
+                currentTime = 0;
+                gameOver.SetActive(true);
+            }
         }
     }
 }
