@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void LoadAssignment1()
     {
         SceneManager.LoadScene("OreMining");
@@ -24,4 +29,11 @@ public class SceneController : MonoBehaviour
     {
         Debug.Log("A4 Coming Soon...");
     }
+
+    public void PlayAgain()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
+    }
+
 }

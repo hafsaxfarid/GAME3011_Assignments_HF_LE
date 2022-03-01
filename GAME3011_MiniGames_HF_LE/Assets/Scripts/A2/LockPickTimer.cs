@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Audio;
 
 public class LockPickTimer : MonoBehaviour
 {
@@ -12,8 +13,11 @@ public class LockPickTimer : MonoBehaviour
     public static float currentTime = 0.0f;
     public float startTime;
 
+    public AudioSource clockTick;
+
     void Start()
     {
+        clockTick = GetComponent<AudioSource>();
         currentTime = startTime;
     }
 
@@ -33,6 +37,10 @@ public class LockPickTimer : MonoBehaviour
             {
                 currentTime = 0;
                 gameOver.SetActive(true);
+
+                clockTick.Stop();
+
+                Time.timeScale = 0f;
             }
         }
     }

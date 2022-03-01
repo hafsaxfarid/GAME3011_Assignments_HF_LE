@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class GameManager_A2 : MonoBehaviour
 {
@@ -37,12 +38,21 @@ public class GameManager_A2 : MonoBehaviour
     float keyPressTime = 0;
     public bool canMoveLockpick = true;
 
+    public AudioSource lockJiggle;
+    public AudioSource unlockSound;
+    public AudioSource clockTick;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        unlockedMessage.SetActive(false);
         easy = false;
         medium = false;
         hard = false;
+
+        // unpause pause state
+        Time.timeScale = 1f;
     }
 
     // Update is called once per frame
@@ -69,11 +79,15 @@ public class GameManager_A2 : MonoBehaviour
         {
             canMoveLockpick = false;
             keyPressTime = 1;
+
+            // play lock jiggle
+            lockJiggle.Play();
         }
         if (Input.GetKeyUp(KeyCode.D))
         {
             canMoveLockpick = true;
             keyPressTime = 0;
+            lockJiggle.Stop();
         }
 
         float percentage = Mathf.Round(100 - Mathf.Abs(((currentAngle - unlockAngle) / 100) * 100));
@@ -102,6 +116,11 @@ public class GameManager_A2 : MonoBehaviour
         if (unlocked && LockPickTimer.currentTime != 0)
         {
             unlockedMessage.SetActive(true);
+
+            clockTick.Stop();
+
+            lockpick.transform.eulerAngles = new Vector3(0,0,0);
+            Time.timeScale = 0f;
         }
     }
 
