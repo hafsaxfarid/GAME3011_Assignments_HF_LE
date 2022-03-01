@@ -13,7 +13,9 @@ public class LockPickTimer : MonoBehaviour
     public static float currentTime = 0.0f;
     public float startTime;
 
-    public AudioSource clockTick;
+    public GameObject fullLock;
+
+    private AudioSource clockTick;
 
     void Start()
     {
@@ -39,6 +41,7 @@ public class LockPickTimer : MonoBehaviour
                 gameOver.SetActive(true);
 
                 clockTick.Stop();
+                fullLock.SetActive(false);
 
                 Time.timeScale = 0f;
             }

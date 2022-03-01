@@ -42,6 +42,8 @@ public class GameManager_A2 : MonoBehaviour
     public AudioSource unlockSound;
     public AudioSource clockTick;
 
+    public GameObject fullLock;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -115,10 +117,8 @@ public class GameManager_A2 : MonoBehaviour
         if (unlocked && LockPickTimer.currentTime != 0)
         {
             unlockedMessage.SetActive(true);
-
             clockTick.Stop();
-
-            lockpick.transform.eulerAngles = new Vector3(0,0,0);
+            fullLock.SetActive(false);
             Time.timeScale = 0f;
         }
     }
