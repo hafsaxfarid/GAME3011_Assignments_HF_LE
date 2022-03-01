@@ -3749,7 +3749,7 @@ MonoBehaviour:
   lockpickSpeed: 10
   canMoveLockpick: 1
   lockJiggle: {fileID: 7890600122108285706}
-  unlockSound: {fileID: 0}
+  unlockSound: {fileID: 1473121483}
   clockTick: {fileID: 1572147155}
 --- !u!4 &1496284067
 Transform:

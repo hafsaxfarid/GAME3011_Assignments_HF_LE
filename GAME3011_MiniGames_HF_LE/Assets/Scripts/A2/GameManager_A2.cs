@@ -42,11 +42,10 @@ public class GameManager_A2 : MonoBehaviour
     public AudioSource unlockSound;
     public AudioSource clockTick;
 
-
     // Start is called before the first frame update
     void Start()
     {
-        unlockedMessage.SetActive(false);
+        unlocked = false;
         easy = false;
         medium = false;
         hard = false;
