@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManagerA3 : MonoBehaviour
 {
@@ -14,54 +14,57 @@ public class GameManagerA3 : MonoBehaviour
     [Header("Desserts to Match")]
     public int numDesserts;
     public TMP_Text numToMatchText;
-
+    public GameObject gameBoardPanel;
+    public GameObject difficultyPanel;
+    public DessertTimer timer;
+    
     void Start()
     {
+        //gameBoardPanel.SetActive(false);
+        difficultyPanel.SetActive(false);
         numDesserts = 0;
         numToMatchText.text = numDesserts.ToString();
         easy = false;
         medium = false;
         hard = false;
     }
-
-    void Update()
-    {
-        
-    }
     
     public void EasyMode()
     {
-        numDesserts = 3;
-        numToMatchText.text = numDesserts.ToString();
-
         easy = true;
         medium = false;
         hard = false;
-
-        //timer.startTime = 60;
+        
+        numDesserts = 3;
+        numToMatchText.text = numDesserts.ToString();
+        difficultyPanel.SetActive(false);
+        gameBoardPanel.SetActive(true);
+        timer.dessertTime = 60;
     }
 
     public void MediumMode()
     {
-        numDesserts = 4;
-        numToMatchText.text = numDesserts.ToString();
-
         easy = false;
         medium = true;
         hard = false;
 
-        //timer.startTime = 40;
+        numDesserts = 4;
+        numToMatchText.text = numDesserts.ToString();
+        difficultyPanel.SetActive(false);
+        gameBoardPanel.SetActive(true);
+        timer.dessertTime = 45;
     }
 
     public void HardMode()
     {
-        numDesserts = 5;
-        numToMatchText.text = numDesserts.ToString();
-
         easy = false;
         medium = false;
         hard = true;
 
-        //timer.startTime = 20;
+        numDesserts = 5;
+        numToMatchText.text = numDesserts.ToString();
+        difficultyPanel.SetActive(false);
+        gameBoardPanel.SetActive(true);
+        timer.dessertTime = 30;
     }
 }

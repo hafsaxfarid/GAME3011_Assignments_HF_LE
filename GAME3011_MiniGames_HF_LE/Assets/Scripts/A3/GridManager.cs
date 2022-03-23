@@ -4,35 +4,46 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-    [SerializeField]
-    public int row;
-    public int column;
+    public static GridManager gridManagerInstance;
+    public List<Sprite> desserts = new List<Sprite>();
 
-    public GameObject tilePrefab;
-    public GameObject[,] grid;
+    public GameObject dessertTile;
+    public int xSize;
+    public int ySize;
 
-    public GameObject gameBoard;
+    private GameObject[,] dessertTiles;
 
-    private int gridSize;
+    public bool isShifting { get; set; }
+
+    private void Awake()
+    {
+        gridManagerInstance = this;
+    }
 
     private void Start()
     {
-        gridSize = (row * column);
-        grid = new GameObject[row, column];
-        MakeGrid();
+        Vector2 offset = dessertTile.GetComponent<SpriteRenderer>().bounds.size;
+        MakeGrid(offset.x, offset.y);
     }
 
-    public void MakeGrid()
+    public void MakeGrid(float xOffset, float yOffset)
     {
-        for (int r = 0; r < row; r++)
+        dessertTiles = new GameObject[xSize, ySize];
+
+        float startX = transform.position.x;
+        float startY = transform.position.y;
+
+
+        for(int x = 0; x < xSize; x++)
         {
-            for (int c = 0; c < column; c++)
+            for(int y= 0; y < ySize; y++)
             {
-                grid[r, c] = Instantiate(tilePrefab);
-                grid[r, c].GetComponent<TileManager>().setGridCoords(r, c);
-                grid[r, c].transform.parent = gameBoard.transform;
-                grid[r, c].transform.position = new Vector3(r, c, 0);
-                grid[r, c].transform.position = new Vector3( (gameBoard.transform.position.x) + r, (gameBoard.transform.position.y) + c, 0);
+                GameObject newDessert = Instantiate(dessertTile,
+                    new Vector3(startX + (xOffset * x),  startY + (yOffset * y), 0),
+                    dessertTile.transform.rotation);
+
+                dessertTiles[x, y] = newDessert;
+                newDessert.transform.parent = transform;
             }
         }
     }
