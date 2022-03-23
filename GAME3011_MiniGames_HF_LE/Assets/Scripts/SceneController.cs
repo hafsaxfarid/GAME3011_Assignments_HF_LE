@@ -22,7 +22,7 @@ public class SceneController : MonoBehaviour
 
     public void LoadAssignment3()
     {
-        Debug.Log("A3 Coming Soon...");
+        SceneManager.LoadScene("Match3");
     }
 
     public void LoadAssignment4()

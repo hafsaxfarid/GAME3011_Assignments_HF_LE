@@ -32,7 +32,7 @@ public class GridManager : MonoBehaviour
                 grid[r, c].GetComponent<TileManager>().setGridCoords(r, c);
                 grid[r, c].transform.parent = gameBoard.transform;
                 grid[r, c].transform.position = new Vector3(r, c, 0);
-                grid[r, c].transform.position = new Vector3( (gameBoard.transform.position.x -15.5f) + r, (gameBoard.transform.position.y - 15.5f) + c, 0);
+                grid[r, c].transform.position = new Vector3( (gameBoard.transform.position.x) + r, (gameBoard.transform.position.y) + c, 0);
             }
         }
     }
