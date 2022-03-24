@@ -764,9 +764,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -466.5, y: -210.00003}
+  m_AnchoredPosition: {x: -469, y: -212.50005}
   m_SizeDelta: {x: 500, y: 500}
-  m_Pivot: {x: 0.08, y: 0.08}
+  m_Pivot: {x: 0.075, y: 0.075}
 --- !u!114 &236278342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -817,7 +817,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8522dc95caf61494294fd0f2bb54cc8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  desserts: []
+  desserts:
+  - {fileID: 21300000, guid: 64cede61ec920674482ea26e8138408e, type: 3}
+  - {fileID: 21300000, guid: ddafe7addf65a5548b95211b1a3fe5bd, type: 3}
+  - {fileID: 21300000, guid: 18ebd4843e90222419b5300b8376d6e8, type: 3}
+  - {fileID: 21300000, guid: ccf00808f734d734e9bd0405a1071154, type: 3}
+  - {fileID: 21300000, guid: 8eaf7f614c777d944b117801a3c925ec, type: 3}
+  - {fileID: 21300000, guid: 3868aafa1b6d1804ebbbcc53c6c9ae3b, type: 3}
   dessertTile: {fileID: 2754442789582601835, guid: 8549085f8cdf9b545a6bdd473c09751d, type: 3}
   xSize: 10
   ySize: 10

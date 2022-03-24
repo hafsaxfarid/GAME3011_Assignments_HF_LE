@@ -44,6 +44,8 @@ public class GridManager : MonoBehaviour
 
                 dessertTiles[x, y] = newDessert;
                 newDessert.transform.parent = transform;
+                Sprite newSprite = desserts[Random.Range(0, desserts.Count)];
+                newDessert.GetComponent<SpriteRenderer>().sprite = newSprite; // picks a random sprite from dessert list and assigns it to the DessertTile prefab
             }
         }
     }
