@@ -10,10 +10,10 @@ public class GridManager : MonoBehaviour
     public GameObject dessertTile;
     public int xSize;
     public int ySize;
+    public bool isShifting { get; set; }
 
     private GameObject[,] dessertTiles;
-
-    public bool isShifting { get; set; }
+    private TileManager tile;
 
     private void Awake()
     {
@@ -44,9 +44,10 @@ public class GridManager : MonoBehaviour
                     new Vector3(startX + (xOffset * x),  startY + (yOffset * y), 0),
                     dessertTile.transform.rotation);
 
+
+
                 dessertTiles[x, y] = newDessert;
                 newDessert.transform.parent = transform;
-
 
                 List<Sprite> possibleCharacters = new List<Sprite>();
                 possibleCharacters.AddRange(desserts);
@@ -56,6 +57,7 @@ public class GridManager : MonoBehaviour
                 Sprite newSprite = possibleCharacters[Random.Range(0, possibleCharacters.Count)];
 
                 newDessert.GetComponent<SpriteRenderer>().sprite = newSprite; // picks a random sprite from dessert list and assigns it to the DessertTile prefab
+                newDessert.name = ($"Dessert [{x},{y}]");
 
                 previousLeft[y] = newSprite;
                 previousBelow = newSprite;

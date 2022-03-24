@@ -18,6 +18,9 @@ public class TileManager : MonoBehaviour
 
     private Vector2[] adjacentDirections = new Vector2[] { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
 
+    List<GameObject> adjacentTiles;
+
+
     public void setGridCoords(int r, int c)
     {
         row = r;
@@ -45,6 +48,7 @@ public class TileManager : MonoBehaviour
 
     void OnMouseDown()
     {
+        // 1
         if (render.sprite == null || GridManager.gridManagerInstance.isShifting)
         {
             return;
@@ -57,13 +61,25 @@ public class TileManager : MonoBehaviour
         else
         {
             if (previousSelected == null)
-            { // 3 Is it the first tile selected?
+            { 
                 Select();
             }
             else
             {
-                SwapSprite(previousSelected.render);
-                previousSelected.Deselect();
+                //SwapSprite(previousSelected.render);
+                //previousSelected.Deselect(); // 4
+
+                if (GetAllAdjacentTiles().Contains(previousSelected.gameObject) == true)
+                { // 1
+                    SwapSprite(previousSelected.render); // 2
+                    previousSelected.Deselect();
+                }
+                else
+                { // 3
+                    previousSelected.GetComponent<TileManager>().Deselect();
+                    Select();
+                }
+
             }
         }
     }
