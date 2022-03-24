@@ -33,8 +33,10 @@ public class GridManager : MonoBehaviour
         float startX = transform.position.x;
         float startY = transform.position.y;
 
+        Sprite[] previousLeft = new Sprite[ySize];
+        Sprite previousBelow = null;
 
-        for(int x = 0; x < xSize; x++)
+        for (int x = 0; x < xSize; x++)
         {
             for(int y= 0; y < ySize; y++)
             {
@@ -44,8 +46,19 @@ public class GridManager : MonoBehaviour
 
                 dessertTiles[x, y] = newDessert;
                 newDessert.transform.parent = transform;
-                Sprite newSprite = desserts[Random.Range(0, desserts.Count)];
+
+
+                List<Sprite> possibleCharacters = new List<Sprite>();
+                possibleCharacters.AddRange(desserts);
+                possibleCharacters.Remove(previousLeft[y]);
+                possibleCharacters.Remove(previousBelow);
+
+                Sprite newSprite = possibleCharacters[Random.Range(0, possibleCharacters.Count)];
+
                 newDessert.GetComponent<SpriteRenderer>().sprite = newSprite; // picks a random sprite from dessert list and assigns it to the DessertTile prefab
+
+                previousLeft[y] = newSprite;
+                previousBelow = newSprite;
             }
         }
     }
