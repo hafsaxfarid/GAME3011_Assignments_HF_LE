@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class GameManagerA3 : MonoBehaviour
 {
     [Header("Difficulties")]
-    bool easy;
-    bool medium;
-    bool hard;
+    public static bool easy;
+    public static bool medium;
+    public static bool hard;
 
     [Header("Desserts to Match")]
     public int numDesserts;

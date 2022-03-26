@@ -32,6 +32,11 @@ public class TileManager : MonoBehaviour
         render = GetComponent<SpriteRenderer>();
     }
 
+    private void Update()
+    {
+        ClearAllMatches();
+    }
+
     private void Select()
     {
         isSelected = true;
@@ -135,13 +140,42 @@ public class TileManager : MonoBehaviour
         {
             matchingTiles.AddRange(FindMatch(paths[i]));
         }
-        if (matchingTiles.Count >= 2) // 4
+
+
+        if(GameManagerA3.easy)
         {
-            for (int i = 0; i < matchingTiles.Count; i++) // 5
+            if (matchingTiles.Count == 2) // 4
             {
-                matchingTiles[i].GetComponent<SpriteRenderer>().sprite = null;
+                for (int i = 0; i < matchingTiles.Count; i++) // 5
+                {
+                    matchingTiles[i].GetComponent<SpriteRenderer>().sprite = null;
+                }
+                matchFound = true; // 6
             }
-            matchFound = true; // 6
+        }
+
+        if (GameManagerA3.medium)
+        {
+            if (matchingTiles.Count == 3) // 4
+            {
+                for (int i = 0; i < matchingTiles.Count; i++) // 5
+                {
+                    matchingTiles[i].GetComponent<SpriteRenderer>().sprite = null;
+                }
+                matchFound = true; // 6
+            }
+        }
+
+        if (GameManagerA3.hard)
+        {
+            if (matchingTiles.Count == 4) // 4
+            {
+                for (int i = 0; i < matchingTiles.Count; i++) // 5
+                {
+                    matchingTiles[i].GetComponent<SpriteRenderer>().sprite = null;
+                }
+                matchFound = true; // 6
+            }
         }
     }
 
