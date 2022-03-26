@@ -62,14 +62,14 @@ public class ResourceSlot : MonoBehaviour
 
     public void Pressed()
     {
-        if (GameManager.canScan)
+        if (GameManagerA1.canScan)
         {
             resourceIconTOP.enabled = false;
             resourceIconBOT.enabled = true;
-            GameManager.scans--;
+            GameManagerA1.scans--;
         }
 
-        if (GameManager.canExtract)
+        if (GameManagerA1.canExtract)
         {
             if (isRevealed)
             {
@@ -87,19 +87,19 @@ public class ResourceSlot : MonoBehaviour
             {
                 ResourcesCollected.resourcesCollected += resourceAmount;
                 resourceAmount = 2500;
-                GameManager.extracts--;
+                GameManagerA1.extracts--;
             }
             else if (resourceAmount == 2500)
             {
                 ResourcesCollected.resourcesCollected += resourceAmount;
                 resourceAmount = 1250;
-                GameManager.extracts--;
+                GameManagerA1.extracts--;
             }
             else if(resourceAmount == 1250)
             {
                 ResourcesCollected.resourcesCollected += resourceAmount;
                 resourceAmount = 0;
-                GameManager.extracts--;
+                GameManagerA1.extracts--;
             }
         }
         else

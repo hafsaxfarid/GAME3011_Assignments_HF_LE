@@ -24,7 +24,7 @@ public class ResourcesCollected : MonoBehaviour
         resourcesCollectedText.text = "Resources Collected: " + resourcesCollected;
         finalText.text = "You Collected: " + resourcesCollected + " Resources!";
 
-        if(GameManager.extracts <= 0)
+        if(GameManagerA1.extracts <= 0)
         {
             finalPanel.SetActive(true);
         }

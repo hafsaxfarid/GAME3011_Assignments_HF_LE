@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
-public class GameManager : MonoBehaviour
+public class GameManagerA1 : MonoBehaviour
 {
     public static bool canExtract;
     public static bool canScan;
