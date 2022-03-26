@@ -14,6 +14,7 @@ public class GameManagerA3 : MonoBehaviour
     [Header("Desserts to Match")]
     public int numDesserts;
     public TMP_Text numToMatchText;
+    public static TMP_Text scoreText;
     public GameObject gameBoardPanel;
     public GameObject difficultyPanel;
     public DessertTimer timer;
