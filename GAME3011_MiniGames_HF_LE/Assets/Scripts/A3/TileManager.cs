@@ -131,6 +131,8 @@ public class TileManager : MonoBehaviour
         {
             if (matchingTiles.Count == 2)
             {
+                GameManagerA3.gmA3Instance.clearSFX.PlayOneShot(GameManagerA3.gmA3Instance.matchSFX);
+
                 for (int i = 0; i < matchingTiles.Count; i++)
                 {
                     matchingTiles[i].GetComponent<SpriteRenderer>().sprite = null;
@@ -154,6 +156,7 @@ public class TileManager : MonoBehaviour
         {
             if (matchingTiles.Count == 3)
             {
+                GameManagerA3.gmA3Instance.clearSFX.PlayOneShot(GameManagerA3.gmA3Instance.matchSFX);
                 for (int i = 0; i < matchingTiles.Count; i++)
                 {
                     matchingTiles[i].GetComponent<SpriteRenderer>().sprite = null;
@@ -177,6 +180,7 @@ public class TileManager : MonoBehaviour
         {
             if (matchingTiles.Count == 4)
             {
+                GameManagerA3.gmA3Instance.clearSFX.PlayOneShot(GameManagerA3.gmA3Instance.matchSFX);
                 for (int i = 0; i < matchingTiles.Count; i++)
                 {
                     matchingTiles[i].GetComponent<SpriteRenderer>().sprite = null;
@@ -206,6 +210,7 @@ public class TileManager : MonoBehaviour
         ClearMatch(new Vector2[2] { Vector2.up, Vector2.down });
         if (matchFound)
         {
+            GameManagerA3.gmA3Instance.clearSFX.PlayOneShot(GameManagerA3.gmA3Instance.matchSFX);
             render.sprite = null;
             matchFound = false;
 

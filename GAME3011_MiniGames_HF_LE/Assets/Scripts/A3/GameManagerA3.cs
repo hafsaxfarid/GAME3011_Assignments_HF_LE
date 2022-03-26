@@ -34,6 +34,7 @@ public class GameManagerA3 : MonoBehaviour
 
     [Header("Sounds")]
     public AudioSource clearSFX;
+    public AudioClip matchSFX;
 
     private void Awake()
     {
