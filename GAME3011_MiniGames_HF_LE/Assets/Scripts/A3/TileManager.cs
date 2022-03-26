@@ -234,8 +234,6 @@ public class TileManager : MonoBehaviour
 
             StopCoroutine(GridManager.gridManagerInstance.FindNullTiles());
             StartCoroutine(GridManager.gridManagerInstance.FindNullTiles());
-
-            //SFXManager.instance.PlaySFX(Clip.Clear);
         }
     }
 }

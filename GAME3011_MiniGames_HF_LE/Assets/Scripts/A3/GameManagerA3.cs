@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class GameManagerA3 : MonoBehaviour
 {
@@ -31,6 +32,9 @@ public class GameManagerA3 : MonoBehaviour
     public int score;
     public TMP_Text scoreText;
 
+    [Header("Sounds")]
+    public AudioSource clearSFX;
+
     private void Awake()
     {
         gmA3Instance = this;
@@ -58,7 +62,7 @@ public class GameManagerA3 : MonoBehaviour
         medium = false;
         hard = false;
 
-        scoreToEarn = 25;
+        scoreToEarn = 350;
         scoreText.text = $" - / {scoreToEarn}";
 
         numDesserts = 3;
@@ -77,7 +81,7 @@ public class GameManagerA3 : MonoBehaviour
         medium = true;
         hard = false;
 
-        scoreToEarn = 300;
+        scoreToEarn = 250;
         scoreText.text = $" - / {scoreToEarn}";
 
         numDesserts = 4;
