@@ -153,7 +153,8 @@ public class TileManager : MonoBehaviour
                 matchFound = true; // 6
 
                 GameManagerA3.gmA3Instance.score += 5;
-                GameManagerA3.gmA3Instance.scoreText.text = GameManagerA3.gmA3Instance.score.ToString();
+                GameManagerA3.gmA3Instance.scoreText.text = (GameManagerA3.gmA3Instance.score.ToString() + 
+                    " / " + GameManagerA3.gmA3Instance.scoreToEarn.ToString());
             }
         }
 
@@ -167,7 +168,8 @@ public class TileManager : MonoBehaviour
                 }
                 matchFound = true; // 6
                 GameManagerA3.gmA3Instance.score += 10;
-                GameManagerA3.gmA3Instance.scoreText.text = GameManagerA3.gmA3Instance.score.ToString();
+                GameManagerA3.gmA3Instance.scoreText.text = (GameManagerA3.gmA3Instance.score.ToString() +
+                    " / " + GameManagerA3.gmA3Instance.scoreToEarn.ToString());
             }
         }
 
@@ -181,7 +183,8 @@ public class TileManager : MonoBehaviour
                 }
                 matchFound = true; // 6
                 GameManagerA3.gmA3Instance.score += 15;
-                GameManagerA3.gmA3Instance.scoreText.text = GameManagerA3.gmA3Instance.score.ToString();
+                GameManagerA3.gmA3Instance.scoreText.text = (GameManagerA3.gmA3Instance.score.ToString() +
+                    " / " + GameManagerA3.gmA3Instance.scoreToEarn.ToString());
             }
         }
     }

@@ -15,7 +15,7 @@ public class GameManagerA3 : MonoBehaviour
 
     [Header("Desserts to Match")]
     public int numDesserts;
-    public TMP_Text numToMatchText;
+    public TMP_Text numDessertsToMatchText;
 
     [Header("UI's")]
     public GameObject gameBoardPanel;
@@ -25,6 +25,7 @@ public class GameManagerA3 : MonoBehaviour
     public DessertTimer timer;
 
     [Header("Score")]
+    public int scoreToEarn;
     public int score;
     public TMP_Text scoreText;
 
@@ -35,15 +36,16 @@ public class GameManagerA3 : MonoBehaviour
 
     void Start()
     {
-        gameBoardPanel.SetActive(false);
-        difficultyPanel.SetActive(false);
-        numDesserts = 0;
-        numToMatchText.text = numDesserts.ToString();
-        score = 0;
-        scoreText.text = numDesserts.ToString();
         easy = false;
         medium = false;
         hard = false;
+        
+        gameBoardPanel.SetActive(false);
+        difficultyPanel.SetActive(false);
+        
+        numDesserts = 0;
+        numDessertsToMatchText.text = numDesserts.ToString();
+        
     }
     
     public void EasyMode()
@@ -51,12 +53,16 @@ public class GameManagerA3 : MonoBehaviour
         easy = true;
         medium = false;
         hard = false;
-        
+
+        scoreToEarn = 150;
+        scoreText.text = $" - / {scoreToEarn}";
+
         numDesserts = 3;
-        score = 5;
-        numToMatchText.text = numDesserts.ToString();
+        numDessertsToMatchText.text = numDesserts.ToString();
+        
         difficultyPanel.SetActive(false);
         gameBoardPanel.SetActive(true);
+        
         timer.dessertTime = 60;
     }
 
@@ -66,10 +72,15 @@ public class GameManagerA3 : MonoBehaviour
         medium = true;
         hard = false;
 
+        scoreToEarn = 300;
+        scoreText.text = $" - / {scoreToEarn}";
+
         numDesserts = 4;
-        numToMatchText.text = numDesserts.ToString();
+        numDessertsToMatchText.text = numDesserts.ToString();
+        
         difficultyPanel.SetActive(false);
         gameBoardPanel.SetActive(true);
+        
         timer.dessertTime = 45;
     }
 
@@ -79,10 +90,15 @@ public class GameManagerA3 : MonoBehaviour
         medium = false;
         hard = true;
 
+        scoreToEarn = 500;
+        scoreText.text = $" - / {scoreToEarn}";
+
         numDesserts = 5;
-        numToMatchText.text = numDesserts.ToString();
+        numDessertsToMatchText.text = numDesserts.ToString();
+        
         difficultyPanel.SetActive(false);
         gameBoardPanel.SetActive(true);
+        
         timer.dessertTime = 30;
     }
 }
