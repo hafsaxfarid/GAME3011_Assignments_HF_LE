@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class TileManager : MonoBehaviour
 {
-    [SerializeField]
-    public int row;
-    
-    [SerializeField]
-    public int column;
-
     private Color selectedColor = new Color(.5f, .5f, .5f, 1.0f);
     private static TileManager previousSelected = null;
 
@@ -19,13 +13,6 @@ public class TileManager : MonoBehaviour
     private Vector2[] adjacentDirections = new Vector2[] { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
     private bool matchFound = false;
     List<GameObject> adjacentTiles;
-
-
-    public void setGridCoords(int r, int c)
-    {
-        row = r;
-        column = c;
-    }
 
     void Awake()
     {
@@ -53,33 +40,32 @@ public class TileManager : MonoBehaviour
 
     void OnMouseDown()
     {
-        // 1
         if (render.sprite == null || GridManager.gridManagerInstance.isShifting)
         {
             return;
         }
 
         if (isSelected)
-        { // 2 Is it already selected?
+        {
             Deselect();
         }
         else
         {
             if (previousSelected == null)
-            { // 3 Is it the first tile selected?
+            {
                 Select();
             }
             else
             {
                 if (GetAllAdjacentTiles().Contains(previousSelected.gameObject))
-                { // 1
-                    SwapSprite(previousSelected.render); // 2
+                {
+                    SwapSprite(previousSelected.render);
                     previousSelected.ClearAllMatches();
                     previousSelected.Deselect();
                     ClearAllMatches();
                 }
                 else
-                { // 3
+                {
                     previousSelected.GetComponent<TileManager>().Deselect();
                     Select();
                 }
@@ -104,10 +90,8 @@ public class TileManager : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, castDir);
         if (hit.collider != null)
         {
-            //Debug.Log("raycast");
             return hit.collider.gameObject;
         }
-        //Debug.Log("raycast no");
         return null;
     }
 
@@ -122,21 +106,22 @@ public class TileManager : MonoBehaviour
     }
 
     private List<GameObject> FindMatch(Vector2 castDir)
-    { // 1
-        List<GameObject> matchingTiles = new List<GameObject>(); // 2
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, castDir); // 3
+    {
+        List<GameObject> matchingTiles = new List<GameObject>();
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, castDir);
+        
         while (hit.collider != null && hit.collider.GetComponent<SpriteRenderer>().sprite == render.sprite)
-        { // 4
+        {
             matchingTiles.Add(hit.collider.gameObject);
             hit = Physics2D.Raycast(hit.collider.transform.position, castDir);
         }
-        return matchingTiles; // 5
+        return matchingTiles;
     }
 
-    private void ClearMatch(Vector2[] paths) // 1
+    private void ClearMatch(Vector2[] paths)
     {
-        List<GameObject> matchingTiles = new List<GameObject>(); // 2
-        for (int i = 0; i < paths.Length; i++) // 3
+        List<GameObject> matchingTiles = new List<GameObject>();
+        for (int i = 0; i < paths.Length; i++)
         {
             matchingTiles.AddRange(FindMatch(paths[i]));
         }
@@ -144,13 +129,13 @@ public class TileManager : MonoBehaviour
 
         if(GameManagerA3.easy)
         {
-            if (matchingTiles.Count == 2) // 4
+            if (matchingTiles.Count == 2)
             {
-                for (int i = 0; i < matchingTiles.Count; i++) // 5
+                for (int i = 0; i < matchingTiles.Count; i++)
                 {
                     matchingTiles[i].GetComponent<SpriteRenderer>().sprite = null;
                 }
-                matchFound = true; // 6
+                matchFound = true;
 
                 if (GameManagerA3.gmA3Instance.score != GameManagerA3.gmA3Instance.scoreToEarn)
                 {
@@ -162,22 +147,18 @@ public class TileManager : MonoBehaviour
                 {
                     GameManagerA3.gmA3Instance.GameWin();
                 }
-
-                //GameManagerA3.gmA3Instance.score += 5;
-                //GameManagerA3.gmA3Instance.scoreText.text = (GameManagerA3.gmA3Instance.score.ToString() + 
-                //    " / " + GameManagerA3.gmA3Instance.scoreToEarn.ToString());
             }
         }
 
         if (GameManagerA3.medium)
         {
-            if (matchingTiles.Count == 3) // 4
+            if (matchingTiles.Count == 3)
             {
-                for (int i = 0; i < matchingTiles.Count; i++) // 5
+                for (int i = 0; i < matchingTiles.Count; i++)
                 {
                     matchingTiles[i].GetComponent<SpriteRenderer>().sprite = null;
                 }
-                matchFound = true; // 6
+                matchFound = true;
 
                 if (GameManagerA3.gmA3Instance.score != GameManagerA3.gmA3Instance.scoreToEarn)
                 {
@@ -189,22 +170,18 @@ public class TileManager : MonoBehaviour
                 {
                     GameManagerA3.gmA3Instance.GameWin();
                 }
-
-                //GameManagerA3.gmA3Instance.score += 10;
-                //GameManagerA3.gmA3Instance.scoreText.text = (GameManagerA3.gmA3Instance.score.ToString() +
-                //    " / " + GameManagerA3.gmA3Instance.scoreToEarn.ToString());
             }
         }
 
         if (GameManagerA3.hard)
         {
-            if (matchingTiles.Count == 4) // 4
+            if (matchingTiles.Count == 4)
             {
-                for (int i = 0; i < matchingTiles.Count; i++) // 5
+                for (int i = 0; i < matchingTiles.Count; i++)
                 {
                     matchingTiles[i].GetComponent<SpriteRenderer>().sprite = null;
                 }
-                matchFound = true; // 6
+                matchFound = true;
 
                 if (GameManagerA3.gmA3Instance.score != GameManagerA3.gmA3Instance.scoreToEarn)
                 {
