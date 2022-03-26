@@ -104,10 +104,10 @@ public class TileManager : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, castDir);
         if (hit.collider != null)
         {
-            Debug.Log("raycast");
+            //Debug.Log("raycast");
             return hit.collider.gameObject;
         }
-        Debug.Log("raycast no");
+        //Debug.Log("raycast no");
         return null;
     }
 
@@ -151,6 +151,9 @@ public class TileManager : MonoBehaviour
                     matchingTiles[i].GetComponent<SpriteRenderer>().sprite = null;
                 }
                 matchFound = true; // 6
+
+                GameManagerA3.gmA3Instance.score += 5;
+                GameManagerA3.gmA3Instance.scoreText.text = GameManagerA3.gmA3Instance.score.ToString();
             }
         }
 
@@ -163,6 +166,8 @@ public class TileManager : MonoBehaviour
                     matchingTiles[i].GetComponent<SpriteRenderer>().sprite = null;
                 }
                 matchFound = true; // 6
+                GameManagerA3.gmA3Instance.score += 10;
+                GameManagerA3.gmA3Instance.scoreText.text = GameManagerA3.gmA3Instance.score.ToString();
             }
         }
 
@@ -175,6 +180,8 @@ public class TileManager : MonoBehaviour
                     matchingTiles[i].GetComponent<SpriteRenderer>().sprite = null;
                 }
                 matchFound = true; // 6
+                GameManagerA3.gmA3Instance.score += 15;
+                GameManagerA3.gmA3Instance.scoreText.text = GameManagerA3.gmA3Instance.score.ToString();
             }
         }
     }
