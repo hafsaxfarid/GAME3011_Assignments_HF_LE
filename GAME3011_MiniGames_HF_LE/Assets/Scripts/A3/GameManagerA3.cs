@@ -20,7 +20,7 @@ public class GameManagerA3 : MonoBehaviour
     
     void Start()
     {
-        //gameBoardPanel.SetActive(false);
+        gameBoardPanel.SetActive(false);
         difficultyPanel.SetActive(false);
         numDesserts = 0;
         numToMatchText.text = numDesserts.ToString();

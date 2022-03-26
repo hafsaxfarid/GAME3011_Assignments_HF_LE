@@ -24,19 +24,19 @@ public class DessertTimer : MonoBehaviour
 
     void Update()
     {
-        //currentTime -= (1 * Time.deltaTime);
-        //
-        //if (currentTime <= 0)
-        //{
-        //    currentTime = 0f;
-        //    stopTime = true;
-        //    GameOver();
-        //}
-        //
-        //if (stopTime == false)
-        //{
-        //    timerSlider.value = currentTime;
-        //}
+        currentTime -= (1 * Time.deltaTime);
+        
+        if (currentTime <= 0)
+        {
+            currentTime = 0f;
+            stopTime = true;
+            GameOver();
+        }
+        
+        if (stopTime == false)
+        {
+            timerSlider.value = currentTime;
+        }
     }
 
     private void GameOver()
