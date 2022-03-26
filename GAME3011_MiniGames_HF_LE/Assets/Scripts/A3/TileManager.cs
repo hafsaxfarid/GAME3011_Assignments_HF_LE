@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class TileManager : MonoBehaviour
 {
-    [SerializeField]
-    public int row;
-    
-    [SerializeField]
-    public int column;
-
     private Color selectedColor = new Color(.5f, .5f, .5f, 1.0f);
     private static TileManager previousSelected = null;
 
@@ -17,15 +11,6 @@ public class TileManager : MonoBehaviour
     private bool isSelected = false;
 
     private Vector2[] adjacentDirections = new Vector2[] { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
-
-    List<GameObject> adjacentTiles;
-
-
-    public void setGridCoords(int r, int c)
-    {
-        row = r;
-        column = c;
-    }
 
     void Awake()
     {
@@ -69,7 +54,7 @@ public class TileManager : MonoBehaviour
                 //SwapSprite(previousSelected.render);
                 //previousSelected.Deselect(); // 4
 
-                if (GetAllAdjacentTiles().Contains(previousSelected.gameObject) == true)
+                if (GetAllAdjacentTiles().Contains(previousSelected.gameObject))
                 { // 1
                     SwapSprite(previousSelected.render); // 2
                     previousSelected.Deselect();
@@ -79,7 +64,6 @@ public class TileManager : MonoBehaviour
                     previousSelected.GetComponent<TileManager>().Deselect();
                     Select();
                 }
-
             }
         }
     }

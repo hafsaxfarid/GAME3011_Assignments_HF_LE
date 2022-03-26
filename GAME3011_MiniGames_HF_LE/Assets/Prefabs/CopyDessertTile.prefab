@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5600937658848601420}
   - component: {fileID: 5183052239355682748}
   - component: {fileID: 1343353696727454882}
-  - component: {fileID: 5853482707307144532}
+  - component: {fileID: 4333940892906337685}
   m_Layer: 0
-  m_Name: DessertTile
+  m_Name: CopyDessertTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 3}
   m_EdgeRadius: 0
---- !u!114 &5853482707307144532
+--- !u!114 &4333940892906337685
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,8 +121,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2754442789582601835}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e87ee80e16a453b448916eb2f2c28920, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d9dd64447a82734d93543038f779480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  row: 0
-  column: 0

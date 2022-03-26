@@ -15,12 +15,14 @@ public class GameManagerA3 : MonoBehaviour
     public int numDesserts;
     public TMP_Text numToMatchText;
     public GameObject gameBoardPanel;
+    public GameObject scoreBoardPanel;
     public GameObject difficultyPanel;
     public DessertTimer timer;
     
     void Start()
     {
         //gameBoardPanel.SetActive(false);
+        //scoreBoardPanel.SetActive(false);
         difficultyPanel.SetActive(false);
         numDesserts = 0;
         numToMatchText.text = numDesserts.ToString();
@@ -39,6 +41,7 @@ public class GameManagerA3 : MonoBehaviour
         numToMatchText.text = numDesserts.ToString();
         difficultyPanel.SetActive(false);
         gameBoardPanel.SetActive(true);
+        scoreBoardPanel.SetActive(true);
         timer.dessertTime = 60;
     }
 
@@ -52,6 +55,7 @@ public class GameManagerA3 : MonoBehaviour
         numToMatchText.text = numDesserts.ToString();
         difficultyPanel.SetActive(false);
         gameBoardPanel.SetActive(true);
+        scoreBoardPanel.SetActive(true);
         timer.dessertTime = 45;
     }
 
@@ -65,6 +69,7 @@ public class GameManagerA3 : MonoBehaviour
         numToMatchText.text = numDesserts.ToString();
         difficultyPanel.SetActive(false);
         gameBoardPanel.SetActive(true);
+        scoreBoardPanel.SetActive(true);
         timer.dessertTime = 30;
     }
 }
