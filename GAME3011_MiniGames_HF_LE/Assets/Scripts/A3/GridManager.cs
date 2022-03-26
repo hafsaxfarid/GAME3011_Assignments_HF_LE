@@ -6,14 +6,11 @@ public class GridManager : MonoBehaviour
 {
     public static GridManager gridManagerInstance;
     public List<Sprite> desserts = new List<Sprite>();
-
     public GameObject dessertTile;
     public int xSize;
     public int ySize;
-    public bool isShifting { get; set; }
-
     private GameObject[,] dessertTiles;
-    private TileManager tile;
+    public bool isShifting { get; set; }
 
     private void Awake()
     {
@@ -44,13 +41,13 @@ public class GridManager : MonoBehaviour
                     new Vector3(startX + (xOffset * x),  startY + (yOffset * y), 0),
                     dessertTile.transform.rotation);
 
-
-
                 dessertTiles[x, y] = newDessert;
                 newDessert.transform.parent = transform;
+                newDessert.GetComponent<SpriteRenderer>().sortingOrder = 1;
 
                 List<Sprite> possibleCharacters = new List<Sprite>();
                 possibleCharacters.AddRange(desserts);
+
                 possibleCharacters.Remove(previousLeft[y]);
                 possibleCharacters.Remove(previousBelow);
 

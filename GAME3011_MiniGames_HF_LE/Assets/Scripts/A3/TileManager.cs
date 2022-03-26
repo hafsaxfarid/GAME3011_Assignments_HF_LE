@@ -40,6 +40,44 @@ public class TileManager : MonoBehaviour
         }
 
         if (isSelected)
+        { // 2 Is it already selected?
+            Deselect();
+        }
+        else
+        {
+            if (previousSelected == null)
+            { // 3 Is it the first tile selected?
+                Select();
+            }
+            else
+            {
+                SwapSprite(previousSelected.render);
+                previousSelected.Deselect(); // 4
+            }
+        }
+    }
+
+    public void SwapSprite(SpriteRenderer render2)
+    { // 1
+        if (render.sprite == render2.sprite)
+        { // 2
+            return;
+        }
+
+        Sprite tempSprite = render2.sprite; // 3
+        render2.sprite = render.sprite; // 4
+        render.sprite = tempSprite; // 5
+    }
+
+    /*void OnMouseDown()
+    {
+        // 1
+        if (render.sprite == null || GridManager.gridManagerInstance.isShifting)
+        {
+            return;
+        }
+
+        if (isSelected)
         {
             Deselect();
         }
@@ -98,6 +136,6 @@ public class TileManager : MonoBehaviour
             adjacentTiles.Add(GetAdjacent(adjacentDirections[i]));
         }
         return adjacentTiles;
-    }
+    }*/
 
 }
