@@ -158,7 +158,7 @@ public class TileManager : MonoBehaviour
                     GameManagerA3.gmA3Instance.scoreText.text = (GameManagerA3.gmA3Instance.score.ToString() +
                         " / " + GameManagerA3.gmA3Instance.scoreToEarn.ToString());
                 }
-                else
+                if(GameManagerA3.gmA3Instance.score == GameManagerA3.gmA3Instance.scoreToEarn)
                 {
                     GameManagerA3.gmA3Instance.GameWin();
                 }
@@ -185,7 +185,7 @@ public class TileManager : MonoBehaviour
                     GameManagerA3.gmA3Instance.scoreText.text = (GameManagerA3.gmA3Instance.score.ToString() +
                         " / " + GameManagerA3.gmA3Instance.scoreToEarn.ToString());
                 }
-                else
+                if (GameManagerA3.gmA3Instance.score == GameManagerA3.gmA3Instance.scoreToEarn)
                 {
                     GameManagerA3.gmA3Instance.GameWin();
                 }
@@ -212,7 +212,7 @@ public class TileManager : MonoBehaviour
                     GameManagerA3.gmA3Instance.scoreText.text = (GameManagerA3.gmA3Instance.score.ToString() +
                         " / " + GameManagerA3.gmA3Instance.scoreToEarn.ToString());
                 }
-                else
+                if (GameManagerA3.gmA3Instance.score == GameManagerA3.gmA3Instance.scoreToEarn)
                 {
                     GameManagerA3.gmA3Instance.GameWin();
                 }
