@@ -18,8 +18,10 @@ public class GameManagerA3 : MonoBehaviour
     public TMP_Text numDessertsToMatchText;
 
     [Header("UI's")]
-    public GameObject gameBoardPanel;
+    public GameObject gamePanel; // whole game panel
+    public GameObject gameBoardPanel; // just the board(with all the dessert tiles)
     public GameObject difficultyPanel;
+    public GameObject gameWinPanel;
 
     [Header("Timer")]
     public DessertTimer timer;
@@ -40,8 +42,10 @@ public class GameManagerA3 : MonoBehaviour
         medium = false;
         hard = false;
         
+        gamePanel.SetActive(false);
         gameBoardPanel.SetActive(false);
         difficultyPanel.SetActive(false);
+        gameWinPanel.SetActive(false);
         
         numDesserts = 0;
         numDessertsToMatchText.text = numDesserts.ToString();
@@ -54,15 +58,16 @@ public class GameManagerA3 : MonoBehaviour
         medium = false;
         hard = false;
 
-        scoreToEarn = 150;
+        scoreToEarn = 25;
         scoreText.text = $" - / {scoreToEarn}";
 
         numDesserts = 3;
         numDessertsToMatchText.text = numDesserts.ToString();
         
         difficultyPanel.SetActive(false);
+        gamePanel.SetActive(true);
         gameBoardPanel.SetActive(true);
-        
+
         timer.dessertTime = 60;
     }
 
@@ -79,8 +84,9 @@ public class GameManagerA3 : MonoBehaviour
         numDessertsToMatchText.text = numDesserts.ToString();
         
         difficultyPanel.SetActive(false);
+        gamePanel.SetActive(true);
         gameBoardPanel.SetActive(true);
-        
+
         timer.dessertTime = 45;
     }
 
@@ -90,15 +96,23 @@ public class GameManagerA3 : MonoBehaviour
         medium = false;
         hard = true;
 
-        scoreToEarn = 500;
+        scoreToEarn = 150;
         scoreText.text = $" - / {scoreToEarn}";
 
         numDesserts = 5;
         numDessertsToMatchText.text = numDesserts.ToString();
         
         difficultyPanel.SetActive(false);
+        gamePanel.SetActive(true);
         gameBoardPanel.SetActive(true);
-        
+
         timer.dessertTime = 30;
+    }
+
+    public void GameWin()
+    {
+        Time.timeScale = 0f;
+        gameBoardPanel.SetActive(false);
+        gameWinPanel.SetActive(true);
     }
 }

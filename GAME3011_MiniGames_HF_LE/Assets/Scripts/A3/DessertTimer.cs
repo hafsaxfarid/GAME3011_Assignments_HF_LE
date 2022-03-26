@@ -42,6 +42,7 @@ public class DessertTimer : MonoBehaviour
     private void GameOver()
     {
         Time.timeScale = 0f;
+        GameManagerA3.gmA3Instance.gameBoardPanel.SetActive(false);
         gameOverPanel.SetActive(true);
     }
 }
