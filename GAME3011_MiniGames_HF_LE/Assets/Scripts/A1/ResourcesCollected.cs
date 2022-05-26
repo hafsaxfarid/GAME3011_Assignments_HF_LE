@@ -21,7 +21,7 @@ public class ResourcesCollected : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        resourcesCollectedText.text = "Resources Collected: " + resourcesCollected;
+        resourcesCollectedText.text = resourcesCollected.ToString();
         finalText.text = "You Collected: " + resourcesCollected + " Resources!";
 
         if(GameManagerA1.extracts <= 0)

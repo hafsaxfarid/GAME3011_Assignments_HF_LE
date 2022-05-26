@@ -6,9 +6,13 @@ using TMPro;
 
 public class ResourceSlot : MonoBehaviour
 {
+    [Header("Resourse Info")]
     public Resources resourceOnGrid;
     public Image resourceIconTOP;
     public Image resourceIconBOT;
+
+    [Header("Ore Sprites List")]
+    public List<Sprite> ores = new List<Sprite>(); // list of sprites for ores that can be extracted
 
     bool isRevealed = false;
     bool canExtract = false;
@@ -34,19 +38,19 @@ public class ResourceSlot : MonoBehaviour
 
         if (resourceAmount == 5000) // max
         {
-            resourceIconBOT.color = Color.red;
+            resourceIconBOT.sprite = ores[0];
         }
         else if (resourceAmount == 2500) // half
         {
-            resourceIconBOT.color = Color.blue;
+            resourceIconBOT.sprite = ores[1];
         }
         else if (resourceAmount == 1250) // quater
         {
-            resourceIconBOT.color = Color.cyan;
+            resourceIconBOT.sprite = ores[2];
         }
         else
         {
-            resourceIconBOT.color = Color.grey; // none
+            resourceIconBOT.sprite = ores[3];
         }
 
         if (resourceIconBOT.enabled)
